@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
@@ -17,23 +18,25 @@
     <name>Nabla Maven Site Plugins</name>
     <description>The Nabla Maven site plugins</description>
     <!--<url>http://maven.apache.org/skins/</url>-->
-    <url>http://maven.nabla.mobi</url>    
+    <!--<url>http://home.nabla.mobi:8087/maven</url>-->   
+    <url>https://github.com/AlbanAndrieu/nabla-maven</url>
 
     <scm>
-    	<connection>scm:svn:http://alban.googlecode.com/svn/trunk/maven</connection>
-    	<developerConnection>scm:svn:https://alban.googlecode.com/svn/trunk/maven</developerConnection>
-    	<url>https://alban.googlecode.com/svn/trunk/maven</url>
-    	<tag>HEAD</tag>
+    	<connection>scm:git:git://github.com/AlbanAndrieu/nabla-maven.git</connection>
+    	<developerConnection>scm:git:git@github.com:AlbanAndrieu/nabla-maven.git</developerConnection>
+    	<url>https://github.com/AlbanAndrieu/nabla-maven</url>
     </scm>
-	
-    <modules>
-        <module>skin</module>
-    </modules>
 
     <ciManagement>
-            <system>Jenkins</system>
-            <url>${JOB_URL}</url>
+    	<system>Jenkins</system>
+    	<!--<url>${JENKINS_URL}/job/${JOB_NAME}</url>-->
+        <url>${JOB_URL}</url>
     </ciManagement>
+    
+    <issueManagement>
+    	<url>https://github.com/AlbanAndrieu/nabla-maven/issues</url>
+    	<system>GitHub Issues</system>
+    </issueManagement>
         
     <properties>    
     	<invoker.skip>false</invoker.skip>
@@ -135,7 +138,7 @@
 				<url>ftp://www.nabla.mobi/maven</url>
 				<url>ftp://home.nabla.mobi:8021/</url>
 				-->
-				<url>dav:http://home.nabla.mobi:8087/maven</url>				
+				<url>dav:http://192.168.0.46:8087/maven</url>				
 			</site>
 		</distributionManagement>
             	<!--
