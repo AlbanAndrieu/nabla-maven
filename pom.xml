@@ -128,9 +128,14 @@
                         </snapshotRepository>
 			
 			<site>
-				<id>website</id>
+				<!--<id>website</id>-->
+				<id>webdav</id>
 				<name>Project Website</name>
+				<!--
+				<url>ftp://www.nabla.mobi/maven</url>
 				<url>ftp://home.nabla.mobi:8021/</url>
+				-->
+				<url>dav:http://home.nabla.mobi:8087/maven</url>				
 			</site>
 		</distributionManagement>
             	<!--
