@@ -25,6 +25,7 @@
     	<connection>scm:git:git://github.com/AlbanAndrieu/nabla-maven.git</connection>
     	<developerConnection>scm:git:git@github.com:AlbanAndrieu/nabla-maven.git</developerConnection>
     	<url>https://github.com/AlbanAndrieu/nabla-maven</url>
+    	<tag>HEAD</tag>
     </scm>
 
     <ciManagement>
