@@ -40,10 +40,10 @@
 
     <properties>
     	<invoker.skip>false</invoker.skip>
-		<!--<wagon.webdav.plugin.version>1.0-beta-2</wagon.webdav.plugin.version>-->
-		<wagon.webdav.jackrabbit.version>1.0-beta-7</wagon.webdav.jackrabbit.version>
-      	<wagon.svn.plugin.version>1.8</wagon.svn.plugin.version>
-		<wagon.ftp.plugin.version>2.2</wagon.ftp.plugin.version>
+		<!--<wagon.webdav.jackrabbit.version>1.0-beta-7</wagon.webdav.jackrabbit.version>-->
+		<wagon.webdav.jackrabbit.version>3.0.0</wagon.webdav.jackrabbit.version>
+      	<wagon.svn.plugin.version>1.12</wagon.svn.plugin.version>
+		<wagon.ftp.plugin.version>3.0.0</wagon.ftp.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -120,13 +120,13 @@
                         <repository>
                                 <id>nexus-releases</id>
                                 <name>Nexus Staging Repository</name>
-                                <url>http://home.nabla.mobi:8081/nexus/content/repositories/releases</url>
+                                <url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
                                 <uniqueVersion>true</uniqueVersion>
                         </repository>
                         <snapshotRepository>
                                 <id>nexus-snapshots</id>
                                 <name>Nexus Snapshot Repository</name>
-                                <url>http://home.nabla.mobi:8081/nexus/content/repositories/snapshots</url>
+                                <url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
                                 <uniqueVersion>false</uniqueVersion>
                         </snapshotRepository>
 
@@ -141,19 +141,9 @@
 				<url>dav:http://192.168.0.46:8087/maven</url>
 			</site>
 		</distributionManagement>
-            	<!--
-            	<properties>
-            	    <repositoryId>server-snapshots</repositoryId>
-            	    <url>svn:https://alban.googlecode.com/svn/mavenrepo/snapshots</url>
-            	</properties>
-            	<properties>
-            	    <repositoryId>server-forge-release</repositoryId>
-            	    <url>dav:https://repository-nabla.forge.cloudbees.com/release</url>
-            	</properties>
-            	-->
                 <properties>
                     <repositoryId>nexus-releases</repositoryId>
-                    <url>http://home.nabla.mobi:8081/nexus/content/repositories/releases</url>
+                    <url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
                 </properties>
 	</profile>
     </profiles>
