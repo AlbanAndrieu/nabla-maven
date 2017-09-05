@@ -23,37 +23,44 @@ under the License.
   xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd"
   name="Apache Maven Nabla-Skin">
 
+  <!--
   <skin>
     <groupId>${project.groupId}</groupId>
     <artifactId>${project.artifactId}</artifactId>
     <version>${project.version}</version>
   </skin>
-  
+  -->
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.6</version>
+  </skin>
+
   <bannerLeft>
     <name>${project.name}</name>
   </bannerLeft>
   <bannerRight>
     <!--
-    <href>http://www.maven.nabla.mobi/project</href> 
-    <border>1</border> 
-    <width>48</width> 
-    <height>48</height> 
-    <src>images/home.png</src>   
-    -->  
-    <src></src> 
+    <href>http://www.maven.nabla.mobi/project</href>
+    <border>1</border>
+    <width>48</width>
+    <height>48</height>
+    <src>images/home.png</src>
+    -->
+    <src></src>
   </bannerRight>
 
   <!--<publishDate format="dd MMM yyyy hh:mm zzz"/>-->
-   
+
   <body>
     <head>
       <link rel="meta" title="DOAP" href="${project.url}/doap_${project.artifactId}.rdf" type="application/rdf+xml"/>
     </head>
-  
+
     <breadcrumbs>
       <item name="Skins" href="http://maven.apache.org/skins/index.html" />
-    </breadcrumbs> 
-    	
+    </breadcrumbs>
+
     <menu ref="parent"/>
 
     <menu name="Overview">
@@ -85,10 +92,6 @@ under the License.
 
     <menu ref="reports"/>
 
-    <!--
-    <footer>
-      <div class="row span16">All other marks mentioned (not @project.name@) may be trademarks or registered trademarks of their respective owners.</div>
-    </footer>  
-    -->
+    <footer/>
   </body>
 </project>
