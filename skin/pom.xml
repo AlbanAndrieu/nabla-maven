@@ -7,14 +7,14 @@
         <artifactId>maven</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
-    
+
     <groupId>com.nabla.project</groupId>
     <artifactId>skin</artifactId>
     <packaging>jar</packaging>
     <name>Nabla Site Skin</name>
     <description>The Nabla site skin</description>
-    
-    <properties>    
+
+    <properties>
       <invoker.skip>false</invoker.skip>
       <target.dir>target</target.dir>
       <maven.minify.plugin.version>1.7.6</maven.minify.plugin.version>
@@ -24,7 +24,7 @@
       <!--<site.destination>${project.artifactId}</site.destination>-->
       <site.destination>${project.artifactId}-${project.version}</site.destination>
     </properties>
-      
+
     <build>
       <resources>
         <resource>
@@ -35,7 +35,7 @@
             <include>LICENSE</include>
           </includes>
         </resource>
-    
+
         <!-- exclude css and js since will include the minified version -->
         <resource>
           <directory>${basedir}/src/main/resources</directory>
@@ -44,7 +44,7 @@
             <exclude>js/**</exclude>
           </excludes>
         </resource>
-    
+
         <!-- include the print.css -->
         <resource>
           <directory>${basedir}/src/main/resources</directory>
@@ -52,7 +52,7 @@
             <include>css/print.css</include>
           </includes>
         </resource>
-    
+
         <!-- include minified only -->
         <resource>
           <directory>${project.build.directory}/${project.build.finalName}</directory>
@@ -62,12 +62,12 @@
           </includes>
         </resource>
       </resources>
-    
+
       <plugins>
         <plugin>
           <groupId>com.samaxes.maven</groupId>
           <artifactId>maven-minify-plugin</artifactId>
-          <!-- TODO upgrade to <artifactId>minify-maven-plugin</artifactId> https://github.com/samaxes/minify-maven-plugin/-->      
+          <!-- TODO upgrade to <artifactId>minify-maven-plugin</artifactId> https://github.com/samaxes/minify-maven-plugin/-->
           <version>${maven.minify.plugin.version}</version>
           <executions>
             <execution>
@@ -100,15 +100,15 @@
         </plugin>
       </plugins>
     </build>
-    
-    <profiles>    
+
+    <profiles>
       <profile>
         <id>run-its</id>
         <activation>
           <property>
             <name>!profile.activation</name>
           </property>
-        </activation> 
+        </activation>
         <build>
           <plugins>
             <plugin>
@@ -150,7 +150,7 @@
           <property>
             <name>!profile.activation</name>
           </property>
-        </activation>      
+        </activation>
         <build>
           <plugins>
             <plugin>

@@ -35,7 +35,7 @@
     <menu>
       <item name="Suppress line wrapping in navigation caused by spaces or hyphens" href="./"/>
     </menu>
-    
+
     <menu ref="reports"/>
   </body>
 </project>

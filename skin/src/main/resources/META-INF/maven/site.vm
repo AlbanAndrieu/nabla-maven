@@ -126,7 +126,7 @@
             #set ( $alt = ' alt="' + $banner.alt + '"' )
         #elseif ( $banner.name )
             #set ( $alt = ' alt="' + $banner.name + '"' )
-        #else 
+        #else
             #set ( $alt = "" )
         #end
         #if( $banner.border )
@@ -360,7 +360,7 @@
     #set ( $dateValue = $dateFormat.format( $publishDate ) )
   #elseif ( $decoration.custom.getChild( 'publishDate' ) )
     #set ( $dateValue = $decoration.custom.getChild( 'publishDate' ).getValue() )
-  #else  
+  #else
     #set ( $dateValue = $dateFormat.format( $currentDate ) )
   #end
 ##
@@ -507,7 +507,7 @@
   #if( $accountId && $accountId != "" )
     <!-- Google Analytics -->
     <script type="text/javascript">
-    
+
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', '$accountId']);
       _gaq.push(['_trackPageview']);
@@ -725,7 +725,7 @@
 #end
 #if ( $headContent )
     $headContent
-#end    
+#end
     #googleAnalytics( $decoration.googleAnalyticsAccountId )
   </head>
   <body>

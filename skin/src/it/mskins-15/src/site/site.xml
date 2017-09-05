@@ -37,7 +37,7 @@
       <sideBarEnabled>true</sideBarEnabled>
     </fluidoSkin>
   </custom>
-  
+
   <body>
     <links>
       <item name="Maven Skins" href="http://maven.apache.org/skins/"/>
