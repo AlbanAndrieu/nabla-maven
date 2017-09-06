@@ -57,6 +57,7 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${maven.release.plugin.version}</version>
+					<!--
 					<dependencies>
 						<dependency>
 							<groupId>org.apache.maven.scm</groupId>
@@ -64,8 +65,9 @@
 							<version>${maven.scm.provider.jgit.version}</version>
 						</dependency>
 					</dependencies>
+					-->
 					<configuration>
-						<pushChanges>true</pushChanges>
+						<!--<pushChanges>false</pushChanges>-->
 						<localCheckout>true</localCheckout>
 						<useReleaseProfile>true</useReleaseProfile>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
@@ -78,9 +80,11 @@
 							<checkModificationExclude>**/*.log</checkModificationExclude>
 						</checkModificationExcludes>
 						<!--<allowTimestampedSnapshots>true</allowTimestampedSnapshots>-->
+						<!--
 						<providerImplementations>
 							<git>jgit</git>
 						</providerImplementations>
+						-->
 					</configuration>
 				</plugin>
 			</plugins>
@@ -145,7 +149,7 @@
 				<url>ftp://www.nabla.mobi/maven</url>
 				<url>ftp://home.nabla.mobi:8021/</url>
 				-->
-					<url>dav:http://192.168.0.46:8087/maven</url>
+					<url>dav:http://home.nabla.mobi:8087/maven</url>
 				</site>
 			</distributionManagement>
 			<properties>
