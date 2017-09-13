@@ -41,7 +41,7 @@
         <item name="Wine1" href="wine1.html"/>
       </item>
     </menu>
-    
+
     <menu ref="reports"/>
   </body>
 </project>
