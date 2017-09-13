@@ -17,6 +17,6 @@
 # specific language governing permissions and limitations
 # under the License.
 #------------------------------------------------------------------------------
-# $Id: resize_icon.sh 1202317 2011-11-15 17:21:30Z simonetripodi $
+# $Id$
 
 convert $1 -adaptive-resize 14x14 $1

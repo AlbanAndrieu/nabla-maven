@@ -17,10 +17,10 @@
  * under the License.
  */
 
-/* $Id: maven-base.css 1227726 2012-01-05 18:04:15Z simonetripodi $ */
+/* $Id$ */
 
 .clear{clear:both;visibility: hidden;}
 .clear hr{display: none;}
 .section p,.section p,.section dt,.section dt{margin-right: 7px;margin-left: 7px;}
-#leftColumn li.none {text-indent: -1em;margin-left: 1em;}
 #ohloh {margin-bottom: 10px;}
+#poweredBy{text-align: center}

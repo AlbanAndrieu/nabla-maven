@@ -11,6 +11,9 @@ ${project.name}
  This is a test for ${skinName} with topbar enabled, sidebar disabled and Google Search.
  ${skinDescription}
 
+ topbar width configured with topBarContainerStyle which set style attribute content.
+
+
 * Actual configuration
 
 %{snippet|id=skin-custom-config|file=${project.basedir}/src/site/site.xml}

@@ -17,7 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 #------------------------------------------------------------------------------
-# $Id: sprite.sh 1202317 2011-11-15 17:21:30Z simonetripodi $
+# $Id$
 
 montage window-new.png \
         internet-web-browser.png \
@@ -29,6 +29,4 @@ montage window-new.png \
         drive-harddisk.png \
         network-server.png \
         contact-new.png \
-        expanded.png \
-        collapsed.png \
         -tile 4x3 -geometry +2+2 -background none external-links.png

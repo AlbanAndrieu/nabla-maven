@@ -35,6 +35,7 @@
   <custom>
     <fluidoSkin>
       <topBarEnabled>true</topBarEnabled>
+      <topBarContainerStyle>width: 90%;</topBarContainerStyle>
       <topBarIcon>
         <name>Maven Fluido Skin</name>
         <alt>Maven Fluido Skin</alt>
@@ -42,7 +43,7 @@
         <href>/index.html</href>
       </topBarIcon>
       <sideBarEnabled>false</sideBarEnabled>
-      <searchEnabled>true</searchEnabled>
+      <googleSearch/>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
     </fluidoSkin>
   </custom>
@@ -56,21 +57,24 @@
       <item name="Just Test" href="http://nowhere.com/"/>
     </links>
 
-    <breadcrumbs>
-      <item name="skins" href="/skins/"/>
-      <item name="${skinArtifactId}" href="/skins/${skinArtifactId}/"/>
-    </breadcrumbs>
-
     <menu name="Overview">
-      <item name="Introduction" href="index.html"/>
+      <item name="Introduction" href="index.html">
+        <item name="Bar" href="bar.html"/>
+      </item>
+      <item name="Foo" href="foo.html">
+        <item name="Bar" href="bar.html"/>
+        <item name="Wine" href="wine.html"/>
+        <item name="Beer" href="beer.html"/>
+      </item>
     </menu>
 
     <menu ref="reports"/>
 
     <footer>
-      <div class="row span16">Apache Maven, Apache @project.name@, Apache, the Apache feather logo, and the Apache Maven project logos are trademarks of The Apache Software Foundation.
+      <![CDATA[
+      <div class="row">Apache Maven, Apache $project.name, Apache, the Apache feather logo, and the Apache Maven project logos are trademarks of The Apache Software Foundation.
       All other marks mentioned may be trademarks or registered trademarks of their respective owners.</div>
-      <div class="row span16">
+      <div class="row">
         <div class="span4">
           <address>
             <strong>The Apache Software Foundation</strong><br/>
@@ -90,6 +94,7 @@
           </address>
         </div>
       </div>
+      ]]>
     </footer>
   </body>
 

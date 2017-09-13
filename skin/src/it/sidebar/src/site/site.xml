@@ -34,7 +34,7 @@
   <!-- START SNIPPET: skin-custom-config -->
   <custom>
     <fluidoSkin>
-      <searchEnabled>true</searchEnabled>
+      <googleSearch/>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
     </fluidoSkin>
   </custom>
@@ -44,10 +44,6 @@
   <version position="right" />
 
   <body>
-    <breadcrumbs>
-      <item name="skins" href="/skins/"/>
-      <item name="${skinArtifactId}" href="/skins/${skinArtifactId}/"/>
-    </breadcrumbs>
 
     <menu name="Overview">
       <item name="Introduction" href="index.html"/>
@@ -56,9 +52,10 @@
     <menu ref="reports"/>
 
     <footer>
-      <div class="row span16">Apache Maven, Apache @project.name@, Apache, the Apache feather logo, and the Apache Maven project logos are trademarks of The Apache Software Foundation.
+      <![CDATA[
+      <div class="row-fluid">Apache Maven, Apache $project.name, Apache, the Apache feather logo, and the Apache Maven project logos are trademarks of The Apache Software Foundation.
       All other marks mentioned may be trademarks or registered trademarks of their respective owners.</div>
-      <div class="row span16">
+      <div class="row-fluid">
         <div class="span4">
           <address>
             <strong>The Apache Software Foundation</strong><br/>
@@ -78,6 +75,7 @@
           </address>
         </div>
       </div>
+      ]]>
     </footer>
   </body>
 
