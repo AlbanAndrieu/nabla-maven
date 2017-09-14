@@ -2,8 +2,9 @@
  Introduction
  ------
  Hervé Boutemy
+ Simone "Simo" Tripodi
  ------
- 2011-10-11
+ 2012-06-28
  ------
 
 ~~ Licensed to the Apache Software Foundation (ASF) under one
@@ -26,13 +27,18 @@
 ~~ NOTE: For help with the syntax of this file, see:
 ~~ http://maven.apache.org/doxia/references/apt-format.html
 
-${project.name}
+Welcome to ${project.name}!
 
  The Apache Maven Fluido Skin is an Apache Maven site skin built on top of
- {{{http://twitter.github.com/bootstrap/}Twitter's bootstrap}}.
+ {{{http://bootstrapdocs.com/v${project.properties.get('bootstrap.version')}/docs/}Twitter's Bootstrap ${project.properties.get('bootstrap.version')}}}.
 
- A {{{./sample.html}sample page}} is provided to see the skin in action, and 2 complete sites to show skin
+ A {{{./sample.html}sample page}} is provided to see the skin in action, and two complete sites to show skin
  configurations: one for {{{./sidebar/}sidebar layout (default)}} and the other for {{{./topbar/}topbar layout}}.
+
+ Notice: since version 1.5 of this skin, Velocity 1.7 (used by Maven Site Plugin version 3.5) is required.
+ But in previous versions of the skin, it was Velocity 1.5, which has some incompatibilities.
+ If you need to mix versions, please see {{{/plugins/maven-site-plugin/migrate.html}the migration guide}} to override
+ Velocity version used by Maven Site Plugin as per your specific skin and site plugin requirements. 
 
 * Usage
 
@@ -106,6 +112,60 @@ ${project.name}
 </project>
 +-----+
 
+** TopBarContainerStyle
+
+  You can configure the style attribute value of the div container for your topbar
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <topBarEnabled>true</topBarEnabled>
+      <topBarContainerStyle>width: 90%;</topBarContainerStyle>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+** NavBarStyle
+
+  You can configure style of your top bar nav (since bootstrap 2.1.0 is not anymore black by default).
+  Use navbar-inverse to have the black one.
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <topBarEnabled>true</topBarEnabled>
+      <navBarStyle>navbar-inverse</navBarStyle>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+** Configuring column class
+
+  When using sidebar, the navigation column uses by default <<<span2>>> class and body column uses
+  <<<span10>>>. To prevent weird/ugly result, the sum must be 12.
+  You can change that using:
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <leftColumnClass>span3</leftColumnClass>
+      <bodyColumnClass>span9</bodyColumnClass>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
 ** GoogleSearch
 
  Users can optionally enable the <<Google Search>> for the generated site, requirements are:
@@ -140,7 +200,7 @@ ${project.name}
 
  By default, the search form:
 
- * is <not> enabled; adding <<custom.fluidoSkin.googleSearch>>> is enough to enable the searchbox.
+ * is <not> enabled; adding <<<custom.fluidoSkin.googleSearch>>> is enough to enable the searchbox.
 
  * is rendered in the sidebar, if the topbar only is available it will be rendered there.
 
@@ -168,8 +228,24 @@ ${project.name}
 
 ** Footers placeholders
 
- Since <<<#eval>>> Velocity macro is not supported yet, the only placeholder
- available in additional footers is <<<@project.name@>>>.
+  Since version <<1.3.1>>, you can configure a copyright class:
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <copyrightClass>pull-right</copyrightClass>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+** head/footer placeholders
+
+ This skin will pass your custom head/footer to <<<${esc.d}render.eval()>>> and replace all variables
+ known to the Velocity context.
 
 ** GitHub ribbons
 
@@ -180,7 +256,7 @@ ${project.name}
 
  * <<<custom.fluidoSkin.gitHub.ribbonOrientation>>>: <<optional>>, it is the the ribbon position, <<<left>>>/<<<right>>> only accepted (<<<left>>> by default);
 
- * <<<custom.fluidoSkin.gitHub.ribbonColor>>>: <<optional>>, it is the the ribbon color, <<<red>>>/<<<green>>>/<<<black>>>/<<<orange>>>/<<<gray>>> only accepted only accepted (<<<red>>> by default).
+ * <<<custom.fluidoSkin.gitHub.ribbonColor>>>: <<optional>>, it is the the ribbon color, <<<red>>>/<<<green>>>/<<<black>>>/<<darkblue>>/<<<orange>>>/<<<gray>>> only accepted only accepted (<<<red>>> by default).
 
 +-----+
 <project name="xxx">
@@ -188,7 +264,7 @@ ${project.name}
   <custom>
     <fluidoSkin>
       <gitHub>
-        <projectId>99soft/backport-spi</projectId>
+        <projectId>apache/maven-skins</projectId>
         <ribbonOrientation>right</ribbonOrientation>
         <ribbonColor>black</ribbonColor>
       </gitHub>
@@ -307,3 +383,138 @@ ${project.name}
 +-----+
 
  Ohloh widgets will be rendered always in the footer as last element
+
+** Facebook like button
+
+ Since version <<1.2>>, fluido-skin supports the Facebook {{{http://developers.facebook.com/docs/reference/plugins/like/}like}}
+ integration. Users have just to declare:
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <facebookLike />
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+ By default, it is rendered in the sidebar, if the topbar only is available it will be rendered there.
+
+ <<Note>> in order the Facebook like button appears, <<<$\{project.url\}>>> property <<must>> be set in the <<<pom.xml>>>!
+
+** Google plusone button
+
+ Since version <<1.2>>, fluido-skin supports the Google {{{https://developers.google.com/+/plugins/+1button/}plusone}}
+ integration. Users have just to declare:
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <googlePlusOne />
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+ By default, it is rendered in the sidebar, if the topbar only is available it will be rendered there.
+
+ <<Note>> in order the Google plusone button appears, <<<$\{project.url\}>>> property <<must>> be set in the <<<pom.xml>>>!
+
+** Piwik web analytics
+
+ Since version <<1.3.1>>, fluido-skin supports inserting {{{http://piwik.org/}Piwik web analytics}}
+ {{{http://piwik.org/docs/javascript-tracking/#toc-where-can-i-find-the-piwik-tracking-code}tracking code}} into the generated pages.
+ Users have to declare:
+
+ * <<<custom.fluidoSkin.piwik.piwikUrl>>>: URL of the Piwik installation without protocol, leading and trailing slashes (i. e. without <<http://>>).
+
+ * <<<custom.fluidoSkin.piwik.idsite>>>: ID in the Piwik installation of the site which is tracked.
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+        <piwik>
+            <piwikUrl>example.org/piwik</piwikUrl>
+            <idsite>1</idsite>
+        </piwik>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+** Flattr button
+
+ Since version <<1.3.1>>, fluido-skin supports {{{http://flattr.com}Flattr}} {{{http://flattr.com/support/button}button}} integration.
+ Users have to declare:
+
+ * <<<custom.fluidoSkin.flattr.thing>>>: <<required>>, ID of the Flattr thing. This is the part after the <<<flattr.com/thing/>>> part of the URL of the Flattr button.
+
+ * <<<custom.fluidoSkin.flattr.url>>>: <<optional>>, URL of the Flattr thing. Either this or the <<<$\{project.url\}>>> must be set for the button to appear. (<<<$\{project.url\}>>> by default.)
+
+ * <<<custom.fluidoSkin.flattr.style>>>: <<optional>>, style of the Flattr button. <<<large>>> and <<<compact>>> are supported. (<<<large>>> by default.)
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <flattr>
+          <thing>12345/Example-Org</thing>
+          <url>http://example.org/</url>
+          <style>compact</style>
+      </flattr>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+ By default, it is rendered in the sidebar, if the topbar only is available it will be rendered there.
+
+** Skip generation date
+
+  Since version <<1.3.1>>, you can skip generation date from the line "Generated by Apache Maven Doxia at \<date\>"
+  to enable it:
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <skipGenerationDate>true</skipGenerationDate>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+** Breadcrumb Divider
+
+   Since version <<1.3.1>>, you can configure the breadcrumb divider (default is a slash):
+
++-----+
+<project name="xxx">
+  [...]
+  <custom>
+    <fluidoSkin>
+      <breadcrumbDivider>»</breadcrumbDivider>
+    </fluidoSkin>
+  </custom>
+  [...]
+</project>
++-----+
+
+Acknowledgment
+
+  ${project.name} contains/redistributes {{{http://glyphicons.com}Glyphicons Halflings}} as part of Bootstrap by Twitter,
+  released under {{{http://creativecommons.org/licenses/by/3.0/deed.en}Creative Commons Attribution 3.0 Unported (CC BY 3.0)}}.
+

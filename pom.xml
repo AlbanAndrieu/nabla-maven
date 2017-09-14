@@ -126,7 +126,7 @@
 					<name>!profile.activation</name>
 				</property>
 			</activation>
-			<build></build>
+			<build />
 			<distributionManagement>
 				<repository>
 					<uniqueVersion>true</uniqueVersion>
