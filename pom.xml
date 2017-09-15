@@ -50,6 +50,10 @@
 		<maven.scm.provider.jgit.version>1.9.5</maven.scm.provider.jgit.version>		
 	</properties>
 
+	<modules>
+		<module>skin</module>
+	</modules>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
