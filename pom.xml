@@ -136,13 +136,13 @@
 					<uniqueVersion>true</uniqueVersion>
 					<id>nexus-releases</id>
 					<name>Nexus Staging Repository</name>
-					<url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
+					<url>http://albandrieu.com:8081/nexus/content/repositories/releases</url>
 				</repository>
 				<snapshotRepository>
 					<uniqueVersion>false</uniqueVersion>
 					<id>nexus-snapshots</id>
 					<name>Nexus Snapshot Repository</name>
-					<url>http://home.nabla.mobi:8085/nexus/content/repositories/snapshots</url>
+					<url>http://albandrieu.com:8081/nexus/content/repositories/snapshots</url>
 				</snapshotRepository>
 
 				<site>
@@ -158,7 +158,7 @@
 			</distributionManagement>
 			<properties>
 				<repositoryId>nexus-releases</repositoryId>
-				<url>http://home.nabla.mobi:8085/nexus/content/repositories/releases</url>
+				<url>http://albandrieu.com:8081/nexus/content/repositories/releases</url>
 			</properties>
 		</profile>
 	</profiles>
