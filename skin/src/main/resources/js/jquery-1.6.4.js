@@ -611,7 +611,7 @@ jQuery.extend({
 			// We use an anonymous function so that context is window
 			// rather than jQuery in Firefox
 			( window.execScript || function( data ) {
-				window[ "eval" ].call( window, data );
+				window.eval.call( window, data );
 			} )( data );
 		}
 	},
@@ -2141,7 +2141,7 @@ jQuery.fn.extend({
 			} else if ( typeof val === "number" ) {
 				val += "";
 			} else if ( jQuery.isArray( val ) ) {
-				val = jQuery.map(val, function ( value ) {
+				val = jQuery.map(val, function( value ) {
 					return value == null ? "" : value + "";
 				});
 			}
@@ -5716,7 +5716,7 @@ jQuery.fn.extend({
 		dataAndEvents = dataAndEvents == null ? false : dataAndEvents;
 		deepDataAndEvents = deepDataAndEvents == null ? dataAndEvents : deepDataAndEvents;
 
-		return this.map( function () {
+		return this.map( function() {
 			return jQuery.clone( this, dataAndEvents, deepDataAndEvents );
 		});
 	},
@@ -8522,7 +8522,7 @@ jQuery.fx.prototype = {
 				// Reset the overflow
 				if ( options.overflow != null && !jQuery.support.shrinkWrapBlocks ) {
 
-					jQuery.each( [ "", "X", "Y" ], function (index, value) {
+					jQuery.each( [ "", "X", "Y" ], function(index, value) {
 						elem.style[ "overflow" + value ] = options.overflow[index];
 					});
 				}

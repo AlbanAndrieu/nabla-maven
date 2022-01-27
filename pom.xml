@@ -11,7 +11,7 @@
 		<relativePath>../dependencies/pom.xml</relativePath>
 	</parent>
 	-->
-	
+
 	<groupId>com.nabla.project</groupId>
 	<artifactId>maven</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
@@ -26,7 +26,7 @@
 		<connection>scm:git:ssh://git@github.com/AlbanAndrieu/nabla-maven.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/AlbanAndrieu/nabla-maven.git</developerConnection>
 		<url>https://github.com/AlbanAndrieu/nabla-maven</url>
-		<tag>HEAD</tag>		
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
@@ -44,16 +44,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<wagon.ftp.plugin.version>3.0.0</wagon.ftp.plugin.version>
-		<wagon.svn.plugin.version>1.12</wagon.svn.plugin.version>	
+		<wagon.svn.plugin.version>1.12</wagon.svn.plugin.version>
 		<wagon.webdav.jackrabbit.version>3.0.0</wagon.webdav.jackrabbit.version>
 		<maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-		<maven.scm.provider.jgit.version>1.9.5</maven.scm.provider.jgit.version>		
+		<maven.scm.provider.jgit.version>1.9.5</maven.scm.provider.jgit.version>
 	</properties>
 
 	<modules>
 		<module>skin</module>
 	</modules>
-	
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -92,7 +92,7 @@
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement>			
+		</pluginManagement>
 		<extensions>
 			<!-- WebDAV for remote deployment -->
 			<!-- sonar desactivation required -->
@@ -123,44 +123,40 @@
 	</build>
 
 	<profiles>
-		<profile>
-			<id>server</id>
-			<activation>
-				<property>
-					<name>!profile.activation</name>
-				</property>
-			</activation>
-			<build />
-			<distributionManagement>
-				<repository>
-					<uniqueVersion>true</uniqueVersion>
-					<id>nexus-releases</id>
-					<name>Nexus Staging Repository</name>
-					<url>http://albandrieu.com:8081/nexus/content/repositories/releases</url>
-				</repository>
-				<snapshotRepository>
-					<uniqueVersion>false</uniqueVersion>
-					<id>nexus-snapshots</id>
-					<name>Nexus Snapshot Repository</name>
-					<url>http://albandrieu.com:8081/nexus/content/repositories/snapshots</url>
-				</snapshotRepository>
-
-				<site>
-					<!--<id>website</id>-->
-					<id>webdav</id>
-					<name>Project Website</name>
-					<!--
-				<url>ftp://www.nabla.mobi/maven</url>
-				<url>ftp://home.nabla.mobi:8021/</url>
-				-->
-					<url>dav:http://home.nabla.mobi:8087/maven</url>
-				</site>
-			</distributionManagement>
-			<properties>
-				<repositoryId>nexus-releases</repositoryId>
-				<url>http://albandrieu.com:8081/nexus/content/repositories/releases</url>
-			</properties>
-		</profile>
+    <profile>
+      <!--Profile configuration for server builds -->
+      <id>server</id>
+      <activation>
+        <property>
+          <name>!profile.activation</name>
+        </property>
+      </activation>
+      <build></build>
+      <distributionManagement>
+        <repository>
+          <uniqueVersion>true</uniqueVersion>
+          <id>nexus-releases</id>
+          <name>Nexus Release Repository</name>
+          <url>http://albandrieu.com:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+          <uniqueVersion>false</uniqueVersion>
+          <id>nexus-snapshots</id>
+          <name>Nexus Snapshot Repository</name>
+          <url>http://albandrieu.com:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <site>
+          <id>webdav</id>
+          <name>Project Website</name>
+          <!--<url>ftp://www.nabla.mobi/maven</url>-->
+          <url>dav:http://albandrieu.com:8087/nabla/</url>
+        </site>
+      </distributionManagement>
+      <properties>
+        <repositoryId>nexus-releases</repositoryId>
+        <url>http://albandrieu.com:8081/repository/maven-releases/</url>
+      </properties>
+    </profile>
 	</profiles>
 
 </project>
